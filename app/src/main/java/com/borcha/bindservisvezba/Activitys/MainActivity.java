@@ -4,7 +4,9 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
     MyService myService;
     boolean isBound=false;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         btnDajVreme.setText(myService.trenutnoVreme());
         Toast.makeText(this,"Datum: " + myService.trenutnoDatum(),Toast.LENGTH_LONG).show();
 
+
     }
 
 
@@ -45,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
         bindService(intBindServis,myConnServ, Context.BIND_AUTO_CREATE);
         isBound=true;
     }
+
+
 
 
 
